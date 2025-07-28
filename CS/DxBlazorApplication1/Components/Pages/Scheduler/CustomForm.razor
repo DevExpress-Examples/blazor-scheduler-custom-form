@@ -1,0 +1,65 @@
+﻿@page "/scheduler/customform"
+@using DxBlazorApplication1.Models.UIModels
+@rendermode InteractiveServer
+
+<DxScheduler @ref=Scheduler @bind-StartDate="@StartDate"
+             GroupType="SchedulerGroupType.Resource"
+             DataStorage="@Storage"
+             AppointmentFormShowing="OnAppointmentFormShowing"
+             AppointmentInserted="OnAppointmentInserted"
+             AppointmentRemoved="OnAppointmentRemoved"
+             AppointmentUpdated="OnAppointmentUpdated">
+    <Views>
+        <DxSchedulerDayView></DxSchedulerDayView>
+        <DxSchedulerWeekView></DxSchedulerWeekView>
+        <DxSchedulerWorkWeekView></DxSchedulerWorkWeekView>
+        <DxSchedulerMonthView></DxSchedulerMonthView>
+        <DxSchedulerTimelineView></DxSchedulerTimelineView>
+    </Views>
+    <AppointmentCompactFormHeaderTemplate Context="ctx">
+        <div><strong>Class</strong></div>
+        <DxSchedulerSaveAppointmentChangesButton></DxSchedulerSaveAppointmentChangesButton>
+        <DxSchedulerDiscardAppointmentChangesButton></DxSchedulerDiscardAppointmentChangesButton>
+        <DxSchedulerShowAppointmentEditFormButton></DxSchedulerShowAppointmentEditFormButton>
+        <div style="flex-grow: 1; text-align: end;">TZ : @ctx.SourceAppointment.TimeZoneId</div>
+    </AppointmentCompactFormHeaderTemplate>
+    <AppointmentCompactFormLayout Context="ctx">
+        <DxSchedulerSubjectFormLayoutItem></DxSchedulerSubjectFormLayoutItem>
+        <DxSchedulerAllDayFormLayoutItem></DxSchedulerAllDayFormLayoutItem>
+        <DxSchedulerStartDateFormLayoutItem></DxSchedulerStartDateFormLayoutItem>
+        <DxSchedulerStartTimeFormLayoutItem></DxSchedulerStartTimeFormLayoutItem>
+        <DxSchedulerEndDateFormLayoutItem></DxSchedulerEndDateFormLayoutItem>
+        <DxSchedulerEndTimeFormLayoutItem></DxSchedulerEndTimeFormLayoutItem>
+        <DxSchedulerLocationFormLayoutItem></DxSchedulerLocationFormLayoutItem>
+        <DxSchedulerDescriptionFormLayoutItem></DxSchedulerDescriptionFormLayoutItem>
+        <DxSchedulerCustomFormLayoutItem ShowIcon=true Caption="Grade">
+            <Template>
+                <DxComboBox Data='new List<string>() { "Bachelor", "Master", "PhD" }' @bind-Value='((CustomAppointmentFormInfo)ctx).Grade'></DxComboBox>
+            </Template>
+        </DxSchedulerCustomFormLayoutItem>
+    </AppointmentCompactFormLayout>
+    <AppointmentFormLayout Context="ctx">
+        <DxSchedulerSubjectFormLayoutItem></DxSchedulerSubjectFormLayoutItem>
+        <DxSchedulerAllDayFormLayoutItem></DxSchedulerAllDayFormLayoutItem>
+        <DxSchedulerStartDateFormLayoutItem></DxSchedulerStartDateFormLayoutItem>
+        <DxSchedulerStartTimeFormLayoutItem></DxSchedulerStartTimeFormLayoutItem>
+        <DxSchedulerEndDateFormLayoutItem></DxSchedulerEndDateFormLayoutItem>
+        <DxSchedulerEndTimeFormLayoutItem></DxSchedulerEndTimeFormLayoutItem>
+        <DxSchedulerRepeatFormLayoutItem Visible=false></DxSchedulerRepeatFormLayoutItem>
+        <DxSchedulerLocationFormLayoutItem Caption="Building"></DxSchedulerLocationFormLayoutItem>
+        <DxSchedulerLabelFormLayoutItem ColSpanXl="6"></DxSchedulerLabelFormLayoutItem>
+        <DxSchedulerStatusFormLayoutItem ColSpanXl="6"></DxSchedulerStatusFormLayoutItem>
+        <DxSchedulerResourceFormLayoutItem Caption="Lecturer"></DxSchedulerResourceFormLayoutItem>
+        <DxSchedulerDescriptionFormLayoutItem></DxSchedulerDescriptionFormLayoutItem>
+        <DxSchedulerCustomFormLayoutItem ShowIcon=true Caption="Grade" ColSpanXl="6">
+            <Template>
+                <DxComboBox Data='new List<string>() { "Bachelor", "Master", "PhD" }' @bind-Value='((CustomAppointmentFormInfo)ctx).Grade'></DxComboBox>
+            </Template>
+        </DxSchedulerCustomFormLayoutItem>
+        <DxSchedulerCustomFormLayoutItem ShowIcon=true Caption="Creator Timezone" ColSpanXl="6">
+            <Template>
+                <DxTextBox Text="@ctx.SourceAppointment.TimeZoneId" Enabled=false ReadOnly=true></DxTextBox>
+            </Template>
+        </DxSchedulerCustomFormLayoutItem>
+    </AppointmentFormLayout>
+</DxScheduler>
