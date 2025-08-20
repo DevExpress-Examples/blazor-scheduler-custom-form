@@ -8,18 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Implementations.InMemory
-{
-    public class InMemoryLabelService : ILabelService<LectureType>
-    {
+namespace ServiceLayer.Implementations.InMemory {
+    public class InMemoryLabelService : ILabelService<LectureType> {
         private readonly IList<LectureType> lectureTypes;
 
-        public InMemoryLabelService()
-        {
+        public InMemoryLabelService() {
             lectureTypes = LabelDataHelper.GetLabels();
         }
-        public Task<IList<LectureType>> GetLabelsAsync()
-        {
+        public Task<IList<LectureType>> GetLabelsAsync() {
             return Task.FromResult(lectureTypes);
         }
     }

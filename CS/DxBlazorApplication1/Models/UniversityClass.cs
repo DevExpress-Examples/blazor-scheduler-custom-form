@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace DxBlazorApplication1.Models
 {
-    public class UniversityClass
-    {
+    public class UniversityClass {
         public int Id { get; set; }
         public int? LecturerId { get; set; }
         public string? LecturerIds { get; set; }
