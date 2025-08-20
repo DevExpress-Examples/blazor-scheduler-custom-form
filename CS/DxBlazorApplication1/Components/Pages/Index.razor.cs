@@ -5,10 +5,8 @@ using DxBlazorApplication1.Services.Interfaces;
 using Microsoft.AspNetCore.Components;
 using System.Diagnostics;
 
-namespace DxBlazorApplication1.Components.Pages.Scheduler
-{
-    public partial class CustomForm : ComponentBase
-    {
+namespace DxBlazorApplication1.Components.Pages {
+    public partial class Index : ComponentBase {
         #region Dependencies
         [Inject]
         private IAppointmentService<UniversityClass> AptService { get; set; }
@@ -24,10 +22,8 @@ namespace DxBlazorApplication1.Components.Pages.Scheduler
         private DxScheduler Scheduler { get; set; }
         private DateTime StartDate { get; set; } = new DateTime(2025, 6, 1);
         private TimeZoneInfo SelectedTimeZone { get; set; } = TimeZoneInfo.Utc;
-        private DxSchedulerDataStorage Storage { get; set; } = new DxSchedulerDataStorage()
-        {
-            AppointmentMappings = new DxSchedulerAppointmentMappings()
-            {
+        private DxSchedulerDataStorage Storage { get; set; } = new DxSchedulerDataStorage() {
+            AppointmentMappings = new DxSchedulerAppointmentMappings() {
                 Id = "Id",
                 Type = "EventType",
                 Start = "StartTime",
@@ -45,24 +41,21 @@ namespace DxBlazorApplication1.Components.Pages.Scheduler
                     new DxSchedulerCustomFieldMapping { Name = "Grade", Mapping = "Grade" }
                 }
             },
-            ResourceMappings = new DxSchedulerResourceMappings()
-            {
+            ResourceMappings = new DxSchedulerResourceMappings() {
                 Id = "Id",
                 Caption = "Name",
                 Color = "Color",
                 BackgroundCssClass = "BackgroundCssClass",
                 TextCssClass = "TextCssClass"
             },
-            AppointmentLabelMappings = new DxSchedulerAppointmentLabelMappings()
-            {
+            AppointmentLabelMappings = new DxSchedulerAppointmentLabelMappings() {
                 Id = "Id",
                 Caption = "Name",
                 Color = "Color",
                 TextCssClass = "TextCssClass",
                 BackgroundCssClass = "BackgroundCssClass"
             },
-            AppointmentStatusMappings = new DxSchedulerAppointmentStatusMappings()
-            {
+            AppointmentStatusMappings = new DxSchedulerAppointmentStatusMappings() {
                 Id = "Id",
                 Caption = "Name",
                 Color = "Color",
@@ -73,8 +66,7 @@ namespace DxBlazorApplication1.Components.Pages.Scheduler
         #endregion
 
         #region Life-cycle Methods
-        protected override async Task OnInitializedAsync()
-        {
+        protected override async Task OnInitializedAsync() {
             Storage.TimeZone = SelectedTimeZone;
             Storage.AppointmentsSource = await AptService.GetAppointmentsAsync();
             Storage.ResourcesSource = await ResService.GetResourcesAsync();
@@ -84,31 +76,25 @@ namespace DxBlazorApplication1.Components.Pages.Scheduler
         #endregion
 
         #region Event Handlers
-        void OnAppointmentFormShowing(SchedulerAppointmentFormEventArgs args)
-        {
+        void OnAppointmentFormShowing(SchedulerAppointmentFormEventArgs args) {
             args.FormInfo = new CustomAppointmentFormInfo(args.Appointment, Storage, Scheduler);
         }
 
-        private async Task OnAppointmentInserted(DxSchedulerAppointmentItem e)
-        {
-            if (e.SourceObject is UniversityClass uc)
-            {
+        private async Task OnAppointmentInserted(DxSchedulerAppointmentItem e) {
+            if (e.SourceObject is UniversityClass uc) {
                 await AptService.InsertAppointmentAsync(uc);
                 Storage.RefreshData();
             }
         }
 
-        private async Task OnAppointmentUpdated(DxSchedulerAppointmentItem e)
-        {
-            if (e.SourceObject is UniversityClass uc)
-            {
+        private async Task OnAppointmentUpdated(DxSchedulerAppointmentItem e) {
+            if (e.SourceObject is UniversityClass uc) {
                 await AptService.UpdateAppointmentAsync(uc);
                 Storage.RefreshData();
             }
         }
 
-        private async Task OnAppointmentRemoved(DxSchedulerAppointmentItem e)
-        {
+        private async Task OnAppointmentRemoved(DxSchedulerAppointmentItem e) {
             await AptService.DeleteAppointmentAsync((int)e.Id);
             Storage.RefreshData();
         }
