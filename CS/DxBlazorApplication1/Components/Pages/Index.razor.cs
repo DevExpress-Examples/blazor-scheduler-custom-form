@@ -21,7 +21,6 @@ namespace DxBlazorApplication1.Components.Pages {
         #region Properties
         private DxScheduler Scheduler { get; set; }
         private DateTime StartDate { get; set; } = new DateTime(2025, 6, 1);
-        private TimeZoneInfo SelectedTimeZone { get; set; } = TimeZoneInfo.Utc;
         private DxSchedulerDataStorage Storage { get; set; } = new DxSchedulerDataStorage() {
             AppointmentMappings = new DxSchedulerAppointmentMappings() {
                 Id = "Id",
@@ -67,7 +66,7 @@ namespace DxBlazorApplication1.Components.Pages {
 
         #region Life-cycle Methods
         protected override async Task OnInitializedAsync() {
-            Storage.TimeZone = SelectedTimeZone;
+            Storage.TimeZone = TimeZoneInfo.Utc;
             Storage.AppointmentsSource = await AptService.GetAppointmentsAsync();
             Storage.ResourcesSource = await ResService.GetResourcesAsync();
             Storage.AppointmentLabelsSource = await LblService.GetLabelsAsync();
