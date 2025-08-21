@@ -8,18 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Implementations.InMemory
-{
-    public class InMemoryStatusService : IStatusService<LectureStatus>
-    {
+namespace ServiceLayer.Implementations.InMemory {
+    public class InMemoryStatusService : IStatusService<LectureStatus> {
         private readonly IList<LectureStatus> statuses;
 
-        public InMemoryStatusService()
-        {
+        public InMemoryStatusService() {
             statuses = StatusDataHelper.GetStatuses();
         }
-        public Task<IList<LectureStatus>> GetStatusesAsync()
-        {
+        public Task<IList<LectureStatus>> GetStatusesAsync() {
             return Task.FromResult(statuses);
         }
     }

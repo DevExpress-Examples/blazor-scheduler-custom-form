@@ -1,6 +1,13 @@
 ﻿@page "/"
 <PageTitle>Welcome</PageTitle>
 
+<style>
+    .my-scheduler {
+        height: 700px;
+        width: 70%;
+    }
+</style>
+
 <div class="main-content">
     <DxGridLayout CssClass="welcome-gridlayout" RowSpacing="3rem">
         <Rows>
@@ -15,20 +22,71 @@
             </DxGridLayoutItem>
             <DxGridLayoutItem Area="cards" CssClass="welcome-cards">
                 <Template>
-                    <NavLink class="welcome-card" href="@UrlGenerator.GetUrl("/scheduler/basic", ToggledSidebar)">
-                        <svg viewBox="0 0 16 16" class="welcome-card-img" alt="basic card">
-                            <use href="images/scheduler/tz.svg"></use>
-                        </svg>
-                        <div class="welcome-card-text">Basic Scheduler</div>
-                        <div class="welcome-card-back"></div>
-                    </NavLink>
-                    <NavLink class="welcome-card" href="@UrlGenerator.GetUrl("/scheduler/customform", ToggledSidebar)">
-                        <svg viewBox="0 0 16 16" class="welcome-card-img" alt="custom form card">
-                            <use href="images/scheduler/custom.svg"></use>
-                        </svg>
-                        <div class="welcome-card-text">Custom Form</div>
-                        <div class="welcome-card-back"></div>
-                    </NavLink>
+                    @using DxBlazorApplication1.Models.UIModels
+                    @rendermode InteractiveServer
+
+                    <DxScheduler @ref="Scheduler" @bind-StartDate="@StartDate"
+                                 GroupType="SchedulerGroupType.Resource"
+                                 DataStorage="@Storage"
+                                 AppointmentFormShowing="OnAppointmentFormShowing"
+                                 AppointmentInserted="OnAppointmentInserted"
+                                 AppointmentRemoved="OnAppointmentRemoved"
+                                 AppointmentUpdated="OnAppointmentUpdated"
+                                 CssClass="my-scheduler">
+                        <Views>
+                            <DxSchedulerDayView></DxSchedulerDayView>
+                            <DxSchedulerWeekView></DxSchedulerWeekView>
+                            <DxSchedulerWorkWeekView></DxSchedulerWorkWeekView>
+                            <DxSchedulerMonthView></DxSchedulerMonthView>
+                            <DxSchedulerTimelineView></DxSchedulerTimelineView>
+                        </Views>
+                        <AppointmentCompactFormHeaderTemplate Context="ctx">
+                            <div style="flex-grow: 1; text-align: end;">Time Zone: @ctx.SourceAppointment.TimeZoneId</div>
+                            <DxSchedulerSaveAppointmentChangesButton />
+                            <DxSchedulerDiscardAppointmentChangesButton />
+                            <DxSchedulerShowAppointmentEditFormButton />
+                        </AppointmentCompactFormHeaderTemplate>
+                        <AppointmentCompactFormLayout Context="ctx">
+                            <DxSchedulerSubjectFormLayoutItem />
+                            <DxSchedulerStartDateFormLayoutItem />
+                            <DxSchedulerStartTimeFormLayoutItem />
+                            <DxSchedulerAllDayFormLayoutItem />
+                            <DxSchedulerEndDateFormLayoutItem />
+                            <DxSchedulerEndTimeFormLayoutItem />
+                            <DxSchedulerLocationFormLayoutItem />
+                            <DxSchedulerDescriptionFormLayoutItem />
+                            <DxSchedulerCustomFormLayoutItem ShowIcon="true" Caption="Grade">
+                                <Template>
+                                    <DxComboBox Data='new List<string>() { "Bachelor", "Master", "PhD" }' @bind-Value='((CustomAppointmentFormInfo)ctx).Grade'></DxComboBox>
+                                </Template>
+                            </DxSchedulerCustomFormLayoutItem>
+                        </AppointmentCompactFormLayout>
+                        <AppointmentFormLayout Context="ctx">
+                            <DxSchedulerSubjectFormLayoutItem />
+                            <DxSchedulerStartDateFormLayoutItem />
+                            <DxSchedulerStartTimeFormLayoutItem />
+                            <DxSchedulerAllDayFormLayoutItem />
+                            <DxSchedulerEndDateFormLayoutItem />
+                            <DxSchedulerEndTimeFormLayoutItem />
+                            <DxSchedulerRepeatFormLayoutItem Visible="false" />
+                            <DxSchedulerLocationFormLayoutItem Caption="Building" />
+                            <DxSchedulerLabelFormLayoutItem ColSpanXl="6" />
+                            <DxSchedulerStatusFormLayoutItem ColSpanXl="6" />
+                            <DxSchedulerResourceFormLayoutItem Caption="Lecturer" />
+                            <DxSchedulerDescriptionFormLayoutItem />
+                            <DxSchedulerCustomFormLayoutItem ShowIcon="true" Caption="Grade" ColSpanXl="6">
+                                <Template>
+                                    <DxComboBox Data='new List<string>() { "Bachelor", "Master", "PhD" }' @bind-Value='((CustomAppointmentFormInfo)ctx).Grade'></DxComboBox>
+                                </Template>
+                            </DxSchedulerCustomFormLayoutItem>
+                            <DxSchedulerCustomFormLayoutItem ShowIcon="true" Caption="Origin Time Zone" ColSpanMd="6">
+                                <Template>
+                                    <div>@ctx.SourceAppointment.TimeZoneId"</div>
+                                </Template>
+                            </DxSchedulerCustomFormLayoutItem>
+                        </AppointmentFormLayout>
+                    </DxScheduler>
+
                 </Template>
             </DxGridLayoutItem>
         </Items>

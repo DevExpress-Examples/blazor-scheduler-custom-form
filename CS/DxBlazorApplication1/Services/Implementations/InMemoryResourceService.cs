@@ -8,19 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceLayer.Implementations.InMemory
-{
-    public class InMemoryResourceService : IResourceService<Lecturer>
-    {
+namespace ServiceLayer.Implementations.InMemory {
+    public class InMemoryResourceService : IResourceService<Lecturer> {
         private readonly IList<Lecturer> resources;
 
-        public InMemoryResourceService()
-        {
+        public InMemoryResourceService() {
             resources = ResourceDataHelper.GetResources();
         }
 
-        public Task<IList<Lecturer>> GetResourcesAsync()
-        {
+        public Task<IList<Lecturer>> GetResourcesAsync() {
             return Task.FromResult(resources);
         }
     }
