@@ -4,31 +4,33 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Product/Platform - Task
+# Blazor Scheduler - Customize Appointment Form
 
-This is the repository template for creating new examples. Describe the solved task here.
+This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and have an additional layout item -- **Grade**.
 
-Put a screenshot that illustrates the result here.
+Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 
-Then, add implementation details (steps, code snippets, and other technical information in a free form), or add a link to an existing document with implementation details. 
+For your convinience, we created a data source that contains different appointment types (one-time, all day, and recurrent) distributed between resources. Refer to the following folders review our implementation: 
+
+* [Models](/CS/DxBlazorApplication1/Models/) 
+* [Services](/CS/DxBlazorApplication1/Services/)
+
+![Custom Appointment Forms](./result.png)
 
 ## Files to Review
 
-- link.cs (VB: link.vb)
-- link.js
-- ...
+- [Index.razor](/CS/DxBlazorApplication1/Components/Pages/Index.razor)
+- [Index.razor.cs](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs)
 
 ## Documentation
 
-- link
-- link
-- ...
+- [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form)
 
 ## More Examples
 
-- link
-- link
-- ...
+- [Load appointments for visible interval only (lazy loading)](https://github.com/DevExpress-Examples/blazor-scheduler-load-appointments-range)
+- [Implement CRUD operations with a Web API Service](https://github.com/DevExpress-Examples/blazor-scheduler-bind-to-web-api-service)
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
