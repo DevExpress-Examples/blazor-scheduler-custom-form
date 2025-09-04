@@ -5,11 +5,11 @@
 <!-- default badges end -->
 # Blazor Scheduler - Customize Appointment Form
 
-This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and have an additional layout item -- **Grade**.
+This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and have a custom layout item -- **Grade**.
 
 Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 
-For your convinience, we created a data source that contains different appointment types (one-time, all day, and recurrent) distributed between resources. Refer to the following folders review our implementation: 
+Like our standard appointment forms, customized forms support CRUD operations (see [Index.razor.cs](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs)). For your convinience, we created a data source that contains different appointment types (one-time, all day, and recurrent) distributed between resources. Refer to the following folders review our implementation: 
 
 * [Models](/CS/DxBlazorApplication1/Models/) 
 * [Services](/CS/DxBlazorApplication1/Services/)
@@ -37,3 +37,4 @@ For your convinience, we created a data source that contains different appointme
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
