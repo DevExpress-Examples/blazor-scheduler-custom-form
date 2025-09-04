@@ -9,10 +9,7 @@ This example creates custom extended and compact appointment forms for DevExpres
 
 Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 
-Like our standard appointment forms, customized forms support CRUD operations (see [Index.razor.cs](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs)). For your convinience, we created a data source that contains different appointment types (one-time, all day, and recurrent) distributed between resources. Refer to the following folders review our implementation: 
-
-* [Models](/CS/DxBlazorApplication1/Models/) 
-* [Services](/CS/DxBlazorApplication1/Services/)
+Like our standard appointment forms, customized forms support [CRUD operations](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs). For your convenience, we created a data source that contains different appointment types (one-time, all day, and recurrent) distributed between resources. This data source is generated at runtime and is bound to the Scheduler via [services](/CS/DxBlazorApplication1/Services/). To bind the component to your data source, you can use the same Scheduler code-behind, but you must implement your own [interfaces](/CS/DxBlazorApplication1/Services/Interfaces).
 
 ![Custom Appointment Forms](./result.png)
 
@@ -20,6 +17,8 @@ Like our standard appointment forms, customized forms support CRUD operations (s
 
 - [Index.razor](/CS/DxBlazorApplication1/Components/Pages/Index.razor)
 - [Index.razor.cs](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs)
+- [Models](/CS/DxBlazorApplication1/Models/) 
+- [Services](/CS/DxBlazorApplication1/Services/)
 
 ## Documentation
 
@@ -37,4 +36,5 @@ Like our standard appointment forms, customized forms support CRUD operations (s
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
