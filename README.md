@@ -1,34 +1,34 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/1027761813/25.1.4%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1304528)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
-# Product/Platform - Task
+# Blazor Scheduler - Customize Appointment Forms
 
-This is the repository template for creating new examples. Describe the solved task here.
+This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and an extra layout item (**Degree Level**).
 
-Put a screenshot that illustrates the result here.
+Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 
-Then, add implementation details (steps, code snippets, and other technical information in a free form), or add a link to an existing document with implementation details. 
+Both standard and customized appointment forms support [CRUD operations](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs). For your convenience, we created a data source that contains different appointment types: one-time or recurring, all-day or with specific start/end times, assigned to a single or multiple resources. Our example generates the data source at runtime and binds it to the Scheduler via [services](/CS/DxBlazorApplication1/Services/). To bind a Scheduler in your own application, you can use the same code-behind, but you must implement your own [interfaces](/CS/DxBlazorApplication1/Services/Interfaces).
+
+![Custom Appointment Forms](./result.png)
 
 ## Files to Review
 
-- link.cs (VB: link.vb)
-- link.js
-- ...
+- [Index.razor](/CS/DxBlazorApplication1/Components/Pages/Index.razor)
+- [Index.razor.cs](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs)
+- [Models](/CS/DxBlazorApplication1/Models/) 
+- [Services](/CS/DxBlazorApplication1/Services/)
 
 ## Documentation
 
-- link
-- link
-- ...
+- [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form)
 
 ## More Examples
 
-- link
-- link
-- ...
+- [Load appointments for visible interval only (lazy loading)](https://github.com/DevExpress-Examples/blazor-scheduler-load-appointments-range)
+- [Implement CRUD operations with a Web API Service](https://github.com/DevExpress-Examples/blazor-scheduler-bind-to-web-api-service)
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
@@ -36,3 +36,5 @@ Then, add implementation details (steps, code snippets, and other technical info
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
+
