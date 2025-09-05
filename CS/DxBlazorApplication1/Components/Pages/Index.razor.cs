@@ -37,7 +37,7 @@ namespace DxBlazorApplication1.Components.Pages {
                 ResourceId = "LecturerIds",
                 TimeZoneId = "TimeZoneId",
                 CustomFieldMappings = new List<DxSchedulerCustomFieldMapping> {
-                    new DxSchedulerCustomFieldMapping { Name = "Grade", Mapping = "Grade" }
+                    new DxSchedulerCustomFieldMapping { Name = "DegreeLevel", Mapping = "DegreeLevel" }
                 }
             },
             ResourceMappings = new DxSchedulerResourceMappings() {

@@ -25,6 +25,6 @@ namespace DxBlazorApplication1.Models
         public string? RecurrenceInfo { get; set; }
         public string? ReminderInfo { get; set; }
         public string? TimeZoneId { get; set; }
-        public string? Grade { get; set; }
+        public string? DegreeLevel { get; set; }
     }
 }

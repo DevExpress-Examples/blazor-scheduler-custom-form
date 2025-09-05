@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # Blazor Scheduler - Customize Appointment Forms
 
-This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and an extra layout item (**Grade**).
+This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and an extra layout item (**Degree Level**).
 
 Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 

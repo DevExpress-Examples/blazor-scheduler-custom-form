@@ -7,9 +7,9 @@ namespace DxBlazorApplication1.Models.UIModels
         public CustomAppointmentFormInfo(DxSchedulerAppointmentItem AppointmentItem,
                 DxSchedulerDataStorage DataStorage, DxScheduler scheduler) : base(AppointmentItem, DataStorage, scheduler) { }
 
-        public string? Grade {
-            get { return CustomFields["Grade"]?.ToString(); }
-            set { CustomFields["Grade"] = value; }
+        public string? DegreeLevel {
+            get { return CustomFields["DegreeLevel"]?.ToString(); }
+            set { CustomFields["DegreeLevel"] = value; }
         }
     }
 }
