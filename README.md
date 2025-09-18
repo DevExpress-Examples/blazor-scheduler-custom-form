@@ -6,11 +6,11 @@
 <!-- default badges end -->
 # Blazor Scheduler - Customize Appointment Forms
 
-This example creates custom extended and compact appointment forms for DevExpress Blazor Scheduler. In addition to standard content, custom forms display appointment time zone and an extra layout item (**Degree Level**).
+This example creates both custom extended and compact appointment forms for the DevExpress Blazor Scheduler component library. In addition to standard content, custom forms display appointment time zone info and an additional layout item (**Degree Level**).
 
-Refer to the following help topic for information on how to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
+Refer to the following help topic to create custom appointment forms: [Custom Appointment Forms and Tooltips](https://docs.devexpress.com/Blazor/404564/components/scheduler/customization/appointment-forms-and-tooltips#custom-appointment-form).
 
-Both standard and customized appointment forms support [CRUD operations](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs). For your convenience, we created a data source that contains different appointment types: one-time or recurring, all-day or with specific start/end times, assigned to a single or multiple resources. Our example generates the data source at runtime and binds it to the Scheduler via [services](/CS/DxBlazorApplication1/Services/). To bind a Scheduler in your own application, you can use the same code-behind, but you must implement your own [interfaces](/CS/DxBlazorApplication1/Services/Interfaces).
+Note: Both standard and customized appointment forms support [CRUD operations](/CS/DxBlazorApplication1/Components/Pages/Index.razor.cs). For your convenience, we created a data source that contains different appointment types: one-time or recurring, all-day or with specific start/end times, assigned to single or multiple resources. Our example generates the data source at runtime and binds it to the Scheduler via [services](/CS/DxBlazorApplication1/Services/). To bind a Scheduler in your own application, you can use the same code-behind, but you must implement your own [interfaces](/CS/DxBlazorApplication1/Services/Interfaces).
 
 ![Custom Appointment Forms](./result.png)
 
